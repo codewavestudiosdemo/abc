@@ -273,7 +273,7 @@
         }
 
         /* ========================================= */
-        /* === MOBILE FIXES (REEL HUGE & RANDOM GALLERY) === */
+        /* === MOBILE FIXES (REEL VISIBLE, US CITIES, RANDOM GALLERY) === */
         /* ========================================= */
         @media (max-width: 768px) {
             nav { padding: 20px 5%; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); }
@@ -293,26 +293,31 @@
             .srv-vis { width: 100%; height: 350px; flex: none; }
             .srv-txt { width: 100%; padding: 30px 20px; flex: none; background: transparent; margin-top: 0; }
             
-            /* --- FIXED VIRAL REEL (HUGE & TEXT TOP) --- */
+            /* --- FIXED VIRAL REEL (NO CROP) --- */
             .viral-sec { 
                 display: flex !important; 
                 flex-direction: column; 
-                padding: 60px 0; /* Remove side padding for full width reel */
+                padding: 60px 0; /* Full width */
                 text-align: center; 
             }
             .viral-txt { 
                 width: 100%; 
-                order: 1; /* TEXT GOES FIRST */
+                order: 1; /* TEXT TOP */
                 margin-bottom: 40px;
-                padding: 0 20px; /* Keep text padded */
+                padding: 0 20px;
             }
             .viral-vis { 
                 width: 100% !important; 
                 max-width: 100% !important; 
-                height: 75vh !important; /* HUGE: 75% of screen height */
-                order: 2; /* VIDEO GOES SECOND */
+                /* CRITICAL: Fixed height large enough for Instagram Embed */
+                height: auto !important;
+                min-height: 650px !important; /* Forces the container to be tall enough */
+                order: 2; /* VIDEO BOTTOM */
                 margin: 0;
-                border-radius: 0; /* Full edge to edge */
+                border-radius: 0;
+            }
+            .viral-vis iframe {
+                height: 650px !important; /* Ensure iframe matches container */
             }
             .stat-row { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 30px 0; }
 
@@ -377,7 +382,8 @@
         <div class="intro-bg"></div>
         <div class="intro-content">
             <h1 class="lux-title">THE DEWDROP</h1>
-            <div class="serving-text">SERVING USA • INDIA • GLOBALLY</div>
+            <!-- UPDATED: USA -> US -->
+            <div class="serving-text">SERVING US • INDIA • GLOBALLY</div>
         </div>
     </div>
 
@@ -445,7 +451,7 @@
         </div>
     </section>
 
-    <!-- VIRAL (FIXED MOBILE REEL - TEXT TOP) -->
+    <!-- VIRAL (FIXED MOBILE REEL - TEXT TOP & FULL HEIGHT) -->
     <section class="viral-sec">
         <div class="viral-vis" data-aos="fade-right">
             <iframe src="https://www.instagram.com/p/C0OJlmZvZ0N/embed/" scrolling="no" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -504,14 +510,14 @@
         <a href="https://instagram.com/cuddles.thedewdropproject" target="_blank" class="premium-btn" style="margin-top:60px;"><i class="fab fa-instagram"></i> VISIT CUDDLES</a>
     </section>
 
-    <!-- MARQUEE -->
+    <!-- MARQUEE (UPDATED WITH US CITIES) -->
     <section style="padding: 100px 0; background: #000; overflow: hidden; border-top: 1px solid #111;">
         <div style="display: flex; gap: 40px; animation: scrollMarquee 40s linear infinite; width: max-content;">
-            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Best cinematographers in Los Angeles. Truly royal experience."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Jordan • LA, USA</h5></div>
-            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Our Jaipur wedding was captured with such grandeur."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Aditi • Jaipur</h5></div>
-            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Professional and creative. Best team in Washington DC."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Emily • DC</h5></div>
-            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Magic in Delhi. Unmatchable candid shots."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Mehak • Delhi</h5></div>
-            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Best cinematographers in Los Angeles. Truly royal experience."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Jordan • LA, USA</h5></div>
+            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"The skyline of NYC looked magical through their lens. Best decision ever."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Sarah • New York City</h5></div>
+            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Hollywood style cinematography. They made us feel like movie stars."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Jordan • Los Angeles</h5></div>
+            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Windy city romance captured beautifully. Truly a royal experience."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Priya • Chicago</h5></div>
+            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"Elegant, timeless, and professional. Best team in DC."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Emily • Washington, D.C.</h5></div>
+            <div style="width: 420px; padding: 50px; background: #080808; border: 1px solid #151515; flex-shrink: 0;"><p class="serif">"The skyline of NYC looked magical through their lens. Best decision ever."</p><h5 class="cinzel" style="color:var(--gold-solid); margin-top:20px;">Sarah • New York City</h5></div>
         </div>
     </section>
     <style>@keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }</style>
